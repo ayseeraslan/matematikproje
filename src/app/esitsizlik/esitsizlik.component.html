@@ -1,0 +1,60 @@
+<navbar></navbar>
+
+<main class="container">
+  <div class="bg-light p-5 rounded">
+   <div class="container my-3">
+   <div class="row">
+       <div class="col-md-3">
+         
+       </div>  
+       <div class="col-md-12">
+    <div class="form-group row">
+    <div class="col-sm-10">
+      <input type="soru" class="form-control " id="soruInput" placeholder="Lütfen bir soru yazın.">
+    </div>
+     <div class="col-auto">
+      <button type="submit" class="btn btn-success btn-md">Çözüm</button>
+    </div>
+  </div>
+       </div>
+     </div> 
+</div>
+  </div>
+</main>
+
+
+
+<div class="container">
+<div class="alert alert-warning" *ngIf="sorular.length>0">
+ Toplam {{sorular.length}} örnek hazırlık sorusu bulundu.
+</div>
+
+<div class="mb-3">
+   <input type="text"  class="form-control" [(ngModel)]="filterText" placeholder="Yıllara Göre Soru Ara...(Örn: 2017,2018..2021 yazın)">
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" *ngFor="let item of sorular | soruFilter:filterText">
+      <div class="card-body">
+       <h5 class="card-title">{{item.title}}</h5>
+        <img src="/assets/img/{{ item.imageUrl }}" class="img-fluid rounded-start" alt="">
+         <img src="/assets/img/{{ item.description }}" class="img-fluid rounded-start" alt="">
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="container">
+  <footer class="py-3 my-4">
+    <p class="text-center text-muted">&copy; 2021 - Matematik Projesi</p>
+  </footer>
+</div>
+
+<div class="b-example-divider"></div>
+
+
+
+
